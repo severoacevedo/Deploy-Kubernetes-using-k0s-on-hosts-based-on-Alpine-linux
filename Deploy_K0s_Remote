@@ -1,54 +1,3 @@
-Dockers
-An open source [containerization](https://www.ibm.com/in-en/cloud/learn/containerization) platform. Package applications into containers—combining application source code with the (OS) libraries and dependencies required to run that code in any environment. Shift to cloud-native development and hybrid [multicloud](https://www.ibm.com/cloud/learn/multicloud) environments..
-
-[**Containers](https://www.ibm.com/in-en/cloud/learn/containers)** are made possible by process isolation and virtualization capabilities built into the Linux kernel. Such as *control groups* (Cgroups) for allocating resources among processes, and *namespaces* for restricting a processes access or visibility into other resources or areas of the system
-
-Kubernetes
-Open-source system for automating deployment, scaling, and management of containerized applications
-how these two technologies works
-Docker helps to “create” containers, and Kubernetes allows you to “manage” them at runtime. Use Docker for packaging and shipping the app. Employ Kubernetes to deploy and scale your app
-
-
-What is a Kubernetes cluster and how it works
-A Kubernetes cluster is a set of nodes that run containerized applications. Containerizing applications packages an app with its dependences and some necessary services. 
-Kubernetes clusters allow containers to run across multiple machines and environments: virtual, physical, cloud-based, and on-premises. Kubernetes containers are not restricted to a specific operating system, unlike virtual machines. 
-Kubernetes clusters are comprised of one master node and a number of worker nodes. These nodes can either be physical computers or virtual machines, depending on the cluster.
-
-The master node controls the state of the cluster; for example, which applications are running and their corresponding container images. The master node is the origin for all task assignments. It coordinates processes such as:
-Scheduling and scaling applications
-Maintaining a cluster’s state
-Implementing updates
-The worker nodes are the components that run these applications. Worker nodes perform tasks assigned by the master node. They can either be virtual machines or physical computers, all operating as part of one system.
-A namespace is a way for a Kubernetes user to organize many different clusters within just one physical cluster. Namespaces enable users to divide cluster resources within the physical cluster among different teams via resource quotas. For this reason, they are ideal in situations involving complex projects or multiple teams. 
-
-A Kubernetes cluster contains six main components:
-API server: Exposes a REST interface to all Kubernetes resources. Serves as the front end of the Kubernetes control plane.
-Scheduler: Places containers according to resource requirements and metrics. Makes note of Pods with no assigned node, and selects nodes for them to run on.
-Controller manager: Runs controller processes and reconciles the cluster’s actual state with its desired specifications. Manages controllers such as node controllers, endpoints controllers and replication controllers.
-Kubelet: Ensures that containers are running in a Pod by interacting with the Docker engine , the default program for creating and managing containers. Takes a set of provided PodSpecs and ensures that their corresponding containers are fully operational.
-Kube-proxy: Manages network connectivity and maintains network rules across nodes. Implements the Kubernetes Service concept across every node in a given cluster.
-Etcd: Stores all cluster data. Consistent and highly available Kubernetes backing store. 
-
-
-What is a Kubernetes POD
-A pod is the smallest execution unit in Kubernetes. A pod encapsulates one or more applications. Pods are ephemeral by nature, if a pod (or the node it executes on) fails, Kubernetes can automatically create a new replica of that pod to continue operations. Pods include one or more containers (such as Docker containers).
-
-Deploy a Web Server Application via a Kubernetes POD (10 points)
-Describe the different services that can be used within Kubernetes to expose an application (5 points)
-Expose your APP publicly if possible.  ( 10 points)
-Describe what is a ReplicaSet within Kubernetes (5 points)
-Perform the Scale-out of your Web Server application (10 points)
-
-kind create --config kind.yaml
-kubectl get pods -A
-
-docker build -t severoacevedo:web .
-docker tag ID severoacevedo/web:v1
-docker run -d -p 80:80 ID
-docker login
-docker push severoacevedo/web:node
-
-
 Install Kubernetes using Alpine VMs
 1. Deploy alpine VMS
    Uncomment http://dl-cdn.alpinelinux.org/alpine/latest-stable/community on /etc/apk/repositories file
@@ -59,7 +8,7 @@ Install Kubernetes using Alpine VMs
 
    Copy key from PC to each VM
    ssh-copy-id root@ip
-   Difine hostnames for each VM
+   Define hostnames for each VM
    /etc/hostname
    Define IP address for each VM
    /etc/network/interfaces
