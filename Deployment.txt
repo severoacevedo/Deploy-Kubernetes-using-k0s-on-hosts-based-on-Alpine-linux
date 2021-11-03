@@ -21,10 +21,9 @@ go install github.com/k0sproject/k0sctl@latest
 ./k0sctl init > init.yaml
 ./k0sctl init --k0s > conf.yaml
 ./k0sctl apply --config init.yaml
-./k0sctl kubeconfig --config init.yaml > k0s.config
-./k0sctl kubeconfig --config init.yaml > kub
+./k0sctl kubeconfig --config init.yaml > k0scluster
 4. get status and deploy your apps
-kubectl get node --kubeconfig kub
+kubectl get node --kubeconfig k0scluster
 
 
 
